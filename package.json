@@ -1,6 +1,6 @@
 {
   "name": "coc-twitch-highlight",
-  "version": "0.0.0-development",
+  "version": "0.5.0",
   "description": "Twitch chat highlight extension",
   "author": "Aleksey Popov <alepooop@gmail.com>",
   "license": "MIT",
