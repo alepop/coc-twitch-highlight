@@ -1,0 +1,111 @@
+{
+  "name": "coc-twitch-highlight",
+  "version": "0.0.0-development",
+  "description": "Twitch chat highlight extension",
+  "author": "Aleksey Popov <alepooop@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim",
+    "twitch",
+    "highlight",
+    "sign"
+  ],
+  "engines": {
+    "coc": "^0.0.70"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "prepare": "npm-run-all clean build"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.2",
+    "coc.nvim": "^0.0.75",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-twitch-highlight configuration",
+      "properties": {
+        "twitchHighlight.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-twitch-highlight extension"
+        },
+        "twitchHighlight.sign": {
+          "type": "string",
+          "default": "👀",
+          "description": "Text of Twitch highlight sign"
+        },
+        "twitchHighlight.signHi": {
+          "type": "string",
+          "default": "TwitchBg",
+          "description": "Highlight group for sign"
+        },
+        "twitchHighlight.numHi": {
+          "type": "string",
+          "default": "TwitchFg",
+          "description": "Highlight group for sign numhl"
+        },
+        "twitchHighlight.lineHi": {
+          "type": "string",
+          "description": "Highlight group for sign linehl"
+        },
+        "twitchHighlight.commentHi": {
+          "type": "string",
+          "default": "TwitchFg",
+          "description": "Highlight group for sign comment"
+        },
+        "twitchHighlight.commentPrefix": {
+          "type": "string",
+          "default": "    ",
+          "description": "Prefix for comment to display in virtual text"
+        },
+        "twitchHighlight.bot.username": {
+          "type": "string",
+          "description": "Twitch username"
+        },
+        "twitchHighlight.bot.oauth": {
+          "type": "string",
+          "description": "Twitch oauth token"
+        },
+        "twitchHighlight.bot.channel": {
+          "type": "string",
+          "description": "Twitch channel to connect"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "twitchHighlight.start",
+        "title": "Connect twitchHighlight bot to a chat"
+      },
+      {
+        "command": "twitchHighlight.stop",
+        "title": "Disconnect twitchHighlight bot from a chat"
+      },
+      {
+        "command": "twitchHighlight.remove",
+        "title": "Remove sign under the cursor"
+      },
+      {
+        "command": "twitchHighlight.removeAll",
+        "title": "Remove all twitch signs"
+      }
+    ]
+  },
+  "dependencies": {
+    "twitch-bot": "^1.3.5"
+  }
+}
